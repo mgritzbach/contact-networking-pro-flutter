@@ -84,6 +84,19 @@ jobs:
       - name: Flutter pub get
         run: flutter pub get
 
+      - name: Disable Xcode code signing
+        run: |
+          python3 << 'PYEOF'
+          import re, pathlib
+          p = pathlib.Path('ios/Runner.xcodeproj/project.pbxproj')
+          c = p.read_text()
+          c = re.sub(r'DEVELOPMENT_TEAM = [^;]*;', 'DEVELOPMENT_TEAM = "";', c)
+          c = re.sub(r'CODE_SIGN_STYLE = [^;]*;', 'CODE_SIGN_STYLE = Manual;', c)
+          c = re.sub(r'CODE_SIGN_IDENTITY = "[^"]*";', 'CODE_SIGN_IDENTITY = "";', c)
+          c = re.sub(r'ProvisioningStyle = Automatic;', 'ProvisioningStyle = Manual;', c)
+          p.write_text(c)
+          PYEOF
+
       - name: Build iOS (unsigned)
         run: flutter build ios --release --no-codesign
 

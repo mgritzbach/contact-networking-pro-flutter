@@ -139,7 +139,7 @@ class _ReviewDropdown extends StatelessWidget {
       child: DropdownButtonFormField<String>(
         value: safeValue,
         decoration: InputDecoration(labelText: label),
-        dropdownColor: kSurface,
+        dropdownColor: kSurfaceDark,
         style: const TextStyle(color: kTextPrimary, fontSize: 14),
         items: options.map((o) => DropdownMenuItem(
           value: o,
