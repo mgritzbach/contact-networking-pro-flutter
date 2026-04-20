@@ -1,0 +1,41 @@
+name: contact_networking_pro
+description: Professional networking — share QR codes, scan business cards.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # QR code rendering (widget — no bitmap needed)
+  qr_flutter: ^4.1.0
+
+  # QR decode from image + camera scanning
+  mobile_scanner: ^4.0.1
+
+  # Image / camera picker
+  image_picker: ^1.1.2
+
+  # Persistence
+  shared_preferences: ^2.3.2
+
+  # Open LinkedIn / WhatsApp
+  url_launcher: ^6.3.0
+
+  # Add to phone contacts
+  flutter_contacts: ^1.1.9+1
+
+  # Business card OCR
+  google_mlkit_text_recognition: ^0.13.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
